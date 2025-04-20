@@ -1,6 +1,5 @@
 import paramiko
 import pynetbox
-import json
 
 def get_switch_config():
     nb = pynetbox.api('NETBOX_URL', token='NETBOX_API_TOKEN')

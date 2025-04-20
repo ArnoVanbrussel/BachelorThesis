@@ -8,3 +8,13 @@ This repository contains the code for my bachelor's thesis on automating and dep
 - `pveAuto.py`
 - `serialNetboxConfig,py`
 - `answer.toml`
+
+## Requirements
+
+* pynetbox
+* pyserial
+* paramiko
+
+Installing requirements easily with the following command:
+
+    pip install -r requirements.txt

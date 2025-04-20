@@ -25,11 +25,28 @@ def send_command(ssh, command, wait_time=1):
     return stdout.read().decode()
 
 def configure_switch(ssh, commands):
-    # You can uncomment this and modify as needed
-    # for line in commands.split('\n'):
-    #     if line.strip():
-    #         print(send_command(ssh, line.strip(), wait_time=2))
-    print(send_command(ssh, 'sho run', wait_time=2))
+    command_list = commands.split('\n')
+    i = 0
+    while i < len(command_list):
+        command = command_list[i].strip()
+        if command.startswith('banner motd'):
+            banner_command = [command]
+            i += 1
+            while i < len(command_list) and not command_list[i].strip().endswith('#'):
+                banner_command.append(command_list[i])
+                i += 1
+            if i < len(command_list):
+                banner_command.append(command_list[i])
+            full_command = '\n'.join(banner_command)
+            response = send_command(ssh, full_command, wait_time=2)
+        else:
+            if command:
+                response = send_command(ssh, command, wait_time=2)
+        print(response)
+        i += 1
+    response = send_command(ssh, 'sho run', wait_time=2)
+    print(response)
+    return response
 
 def reset_switch(ssh):
     print(send_command(ssh, 'erase startup-config', wait_time=5))

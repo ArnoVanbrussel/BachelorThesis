@@ -1,7 +1,7 @@
 [global]
 keyboard = "en-us"
 country = "fr"
-fqdn = "pveauto.testinstall"
+fqdn = "nbTestInstall.pve"
 mailto = "mail@no.com"
 timezone = "Europe/Brussels"
 root_password = "12345678"
@@ -11,10 +11,5 @@ source = "from-dhcp"
 
 [disk-setup]
 filesystem = "zfs"
-disk_list = [ "sda", "sdb",]
-
-[disk-setup.zfs]
-raid = "raid0"
-
-
-
+disk_list = ['sda', 'sdb']
+zfs.raid = "raid1"

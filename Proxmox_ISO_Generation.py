@@ -1,10 +1,9 @@
 import pynetbox
 import paramiko
-import toml
 
 def get_device_info_from_netbox(device_name):
     # Connect to NetBox with token authentication
-    nb = pynetbox.api('https://xbrq8986.cloud.netboxapp.com/', token='#7xuQlP#DFg7Mq)#hqf8(o2KSCj9pQvuGGcGXjze')
+    nb = pynetbox.api('NETBOX_URL', token='NETBOX_TOKEN')
 
     # Search for the device by name
     device = nb.dcim.devices.get(name=device_name)
@@ -51,10 +50,10 @@ disk_list = {disk_list}
 
 
 def upload_and_execute_on_remote(device_name):
-    # SSH connection details
-    ssh_ip = "192.168.0.21"
-    ssh_user = "root"
-    ssh_password = "12345678"
+    # Fill server IP in
+    ssh_ip = "PROXMOX AUTO INSTALL ASSISTANT SERVER IP"
+    ssh_user = input("Enter SSH username: ")
+    ssh_password = input("Enter SSH password: ")
     remote_path = f"/home/answer/{device_name}_answer.toml"  # Include device name in the answer file name
     iso_remote_path = f"/var/lib/vz/template/iso/{device_name}_proxmox-ve_8.3-1-auto-from-iso.iso"  # Include device name in the ISO file name
     iso_local_path = f"D:/ISO's/{device_name}_proxmox-ve_8.3-1-auto-from-iso.iso"  # Save ISO locally with device name

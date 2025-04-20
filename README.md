@@ -4,12 +4,14 @@ This repository contains the code for my bachelor's thesis on automating and dep
 
 ## Contents
 
-- `SSHConfigv2.py`
-- `pveAuto.py`
-- `serialNetboxConfig,py`
-- `answer.toml`
+- `Proxmox_ISO_Generation.py`
+- `Serial_Config_Netbox.py`
+- `SSH_Config_Netbox.py`
+- `SSH_Test_connection.py`
+- `requirements.txt`
+- `example_answer.toml`
 
-## Requirements
+## Library Requirements
 
 * pynetbox
 * pyserial
@@ -17,4 +19,4 @@ This repository contains the code for my bachelor's thesis on automating and dep
 
 Installing requirements easily with the following command:
 
-    pip install -r requirements.txt
+    `pip install -r requirements.txt`
